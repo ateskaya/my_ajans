@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply dark;
+    }
+
+    html.dark body {
+        @apply bg-enterprise-bg text-slate-200 antialiased;
+    }
+}
+
+@layer components {
+    .btn-accent {
+        @apply inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-slate-950 shadow-accent-glow transition hover:bg-accent-bright focus:outline-none focus:ring-2 focus:ring-accent-neon focus:ring-offset-2 focus:ring-offset-enterprise-bg;
+    }
+
+    .card-enterprise {
+        @apply rounded-lg border border-enterprise-border bg-enterprise-surface p-6 shadow-lg;
+    }
+}
