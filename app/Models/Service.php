@@ -16,6 +16,8 @@ class Service extends Model
         'excerpt',
         'description',
         'icon_name',
+        'icon_svg',
+        'image_url',
         'is_active',
     ];
 

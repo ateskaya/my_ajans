@@ -29,12 +29,16 @@ defineProps({
                 class="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
             >
                 <div class="text-center md:text-left">
+                    <p
+                        class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                    >
+                        Hizmetler
+                    </p>
                     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Uzmanlık Alanlarımız
                     </h2>
                     <p class="mt-3 max-w-2xl text-slate-400">
-                        İş hedeflerinize uygun, ölçeklenebilir ve sürdürülebilir
-                        teknoloji çözümleri sunuyoruz.
+                        Görsel odaklı kartlarla hizmetlerimizi keşfedin.
                     </p>
                 </div>
                 <Link
@@ -47,26 +51,53 @@ defineProps({
             </div>
 
             <div
-                class="grid grid-cols-1 gap-6 md:grid-cols-2"
-                :class="fullPage ? 'lg:grid-cols-3' : 'md:grid-cols-3'"
+                class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+                :class="fullPage ? 'lg:gap-10' : ''"
             >
                 <article
                     v-for="service in services"
                     :key="service.id"
-                    class="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500"
+                    class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]"
                 >
-                    <h3 class="text-lg font-semibold text-white">
-                        {{ service.title }}
-                    </h3>
-                    <p class="mt-3 text-sm leading-relaxed text-slate-400">
-                        {{ service.excerpt }}
-                    </p>
-                    <p
-                        v-if="fullPage && service.description"
-                        class="mt-3 text-sm leading-relaxed text-slate-500"
+                    <img
+                        v-if="service.image_url"
+                        :src="service.image_url"
+                        :alt="service.title"
+                        class="h-48 w-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                        loading="lazy"
+                    />
+                    <div
+                        v-else
+                        class="flex h-48 w-full items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-blue-950/40"
+                        aria-hidden="true"
                     >
-                        {{ service.description }}
-                    </p>
+                        <span class="text-xs font-medium uppercase tracking-widest text-slate-500">
+                            Görsel yok
+                        </span>
+                    </div>
+
+                    <div class="relative px-6">
+                        <div
+                            v-if="service.icon_svg"
+                            class="absolute -top-6 left-6 flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 bg-slate-950 shadow-lg shadow-blue-900/20"
+                            v-html="service.icon_svg"
+                        />
+                    </div>
+
+                    <div class="px-6 pb-6 pt-10">
+                        <h3 class="mb-3 text-xl font-bold text-white">
+                            {{ service.title }}
+                        </h3>
+                        <p class="line-clamp-3 text-slate-400">
+                            {{ service.excerpt }}
+                        </p>
+                        <p
+                            v-if="fullPage && service.description"
+                            class="mt-3 line-clamp-4 text-sm leading-relaxed text-slate-500"
+                        >
+                            {{ service.description }}
+                        </p>
+                    </div>
                 </article>
             </div>
         </div>

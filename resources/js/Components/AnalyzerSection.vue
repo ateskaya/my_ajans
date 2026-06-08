@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/vue3';
 import { computed, onUnmounted, ref } from 'vue';
 
 const url = ref('');
-const email = ref('');
+const phone = ref('');
 const phase = ref('idle'); // idle | loading | result | error
 const loadingMessage = ref('');
 const errorMessage = ref('');
@@ -90,7 +90,7 @@ const stopLoadingAnimation = () => {
 const analyze = async () => {
     errorMessage.value = '';
     const targetUrl = url.value.trim();
-    const targetEmail = email.value.trim();
+    const targetPhone = phone.value.trim();
 
     if (!targetUrl) {
         errorMessage.value = 'Lütfen bir web sitesi URL\'si girin.';
@@ -99,8 +99,10 @@ const analyze = async () => {
         return;
     }
 
-    if (!targetEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(targetEmail)) {
-        errorMessage.value = 'Lütfen geçerli bir e-posta adresi girin.';
+    const normalizedPhone = targetPhone.replace(/\s/g, '');
+
+    if (!normalizedPhone || normalizedPhone.length < 10) {
+        errorMessage.value = 'Lütfen geçerli bir telefon numarası girin.';
         phase.value = 'error';
 
         return;
@@ -113,7 +115,7 @@ const analyze = async () => {
     try {
         const { data } = await window.axios.post('/analyze-site', {
             url: targetUrl,
-            email: targetEmail,
+            phone: targetPhone,
         });
 
         report.value = data;
@@ -199,16 +201,18 @@ onUnmounted(() => {
                         </div>
                         <div class="flex-1">
                             <label
-                                for="analyzer-email"
+                                for="analyzer-phone"
                                 class="mb-1.5 block text-xs font-medium text-slate-400"
                             >
-                                E-posta
+                                Telefon Numarası
                             </label>
                             <input
-                                id="analyzer-email"
-                                v-model="email"
-                                type="email"
-                                placeholder="siz@sirket.com"
+                                id="analyzer-phone"
+                                v-model="phone"
+                                type="tel"
+                                inputmode="tel"
+                                autocomplete="tel"
+                                placeholder="05XX XXX XX XX"
                                 class="w-full rounded-lg border border-slate-700/80 bg-slate-950/80 px-4 py-3 text-white placeholder-slate-500 shadow-inner focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30"
                             />
                         </div>

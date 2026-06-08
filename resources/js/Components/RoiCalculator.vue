@@ -210,6 +210,17 @@ const formatPaybackMonths = (months) => {
                         >
                             Bu Tasarrufu Gerçeğe Dönüştürün
                         </Link>
+                        <p class="mt-3 text-sm text-slate-400 transition-colors">
+                            veya aklınıza takılanları
+                            <a
+                                href="https://wa.me/905000000000"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-green-500 underline transition-colors hover:text-green-400"
+                            >
+                                WhatsApp uzmanımıza sorun
+                            </a>.
+                        </p>
                     </div>
                 </div>
             </div>

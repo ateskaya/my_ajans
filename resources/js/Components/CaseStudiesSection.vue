@@ -1,7 +1,6 @@
 <script setup>
-import ProjectGallery3D from '@/Components/ProjectGallery3D.vue';
+import CaseStudyContent from '@/Components/CaseStudyContent.vue';
 import { Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
 
 defineProps({
     caseStudies: {
@@ -18,8 +17,6 @@ defineProps({
     },
 });
 
-const sectionRef = ref(null);
-
 const metricLabels = {
     speed_increase: 'Hız Artışı',
     conversion_lift: 'Dönüşüm Artışı',
@@ -31,12 +28,20 @@ const metricLabels = {
     monthly_ops_savings: 'Aylık Operasyon Tasarrufu',
     cost_reduction: 'Maliyet Azalması',
 };
+
+const fallbackCover = (index) => {
+    const images = [
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&auto=format&fit=crop&q=80',
+    ];
+
+    return images[index % images.length];
+};
 </script>
 
 <template>
     <section
         id="vaka-calismalari"
-        ref="sectionRef"
         class="border-t border-slate-800 bg-slate-950 px-4 py-20 sm:px-6 lg:px-8"
         :class="{ 'border-t-0': fullPage }"
     >
@@ -49,14 +54,13 @@ const metricLabels = {
                     <p
                         class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-400"
                     >
-                        Proje Galaksisi
+                        Vaka Çalışmaları
                     </p>
                     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Başarı Hikayelerimiz ve Yarattığımız Değer
                     </h2>
                     <p class="mt-3 max-w-2xl text-slate-400">
-                        Kaydırın; her vaka çalışması kendi 3D formuna dönüşürken
-                        metrikler ve çözümler yanınızda akar.
+                        Gerçek projelerden ölçülebilir sonuçlar ve iş etkisi.
                     </p>
                 </div>
                 <Link
@@ -68,90 +72,30 @@ const metricLabels = {
                 </Link>
             </div>
 
-            <!-- Mobil: üstte 3D önizleme -->
-            <div class="mb-10 lg:hidden">
-                <ProjectGallery3D
-                    :case-studies="caseStudies"
-                    :scroll-root="sectionRef"
-                />
-            </div>
-
-            <div class="relative lg:flex lg:gap-0">
-                <!-- Sol: sticky 3D galeri -->
-                <aside
-                    class="pointer-events-none hidden lg:pointer-events-auto lg:sticky lg:top-20 lg:flex lg:h-[calc(100vh-5rem)] lg:w-1/2 lg:shrink-0 lg:items-center lg:pr-8"
+            <div class="space-y-16">
+                <article
+                    v-for="(study, index) in caseStudies"
+                    :key="study.id"
+                    class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2"
                 >
-                    <ProjectGallery3D
-                        :case-studies="caseStudies"
-                        :scroll-root="sectionRef"
-                    />
-                </aside>
-
-                <!-- Sağ: kaydırılabilir içerik panelleri -->
-                <div class="lg:w-1/2 lg:pl-8">
-                    <article
-                        v-for="study in caseStudies"
-                        :key="study.id"
-                        class="galaxy-panel flex min-h-[70vh] flex-col justify-center border-b border-slate-800/80 py-16 last:border-b-0 lg:min-h-[85vh]"
+                    <div
+                        class="overflow-hidden rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.1)]"
+                        :class="index % 2 === 1 ? 'lg:order-2' : ''"
                     >
-                        <p class="text-xs font-semibold uppercase tracking-widest text-cyan-500/80">
-                            Vaka Çalışması
-                        </p>
-                        <h3 class="mt-2 text-2xl font-bold text-white sm:text-3xl">
-                            {{ study.title }}
-                        </h3>
-                        <p class="mt-2 text-sm font-medium text-blue-400">
-                            {{ study.client_name }}
-                        </p>
-
-                        <div class="mt-8 space-y-8">
-                            <div>
-                                <h4
-                                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-slate-500"
-                                >
-                                    Müşteri & Problem
-                                </h4>
-                                <p class="text-sm leading-relaxed text-slate-400">
-                                    {{ study.problem }}
-                                </p>
-                            </div>
-
-                            <div>
-                                <h4
-                                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-slate-500"
-                                >
-                                    Çözüm & Etki
-                                </h4>
-                                <p class="text-sm leading-relaxed text-slate-400">
-                                    {{ study.solution }}
-                                </p>
-
-                                <div
-                                    v-if="
-                                        study.impact_metrics &&
-                                        Object.keys(study.impact_metrics).length
-                                    "
-                                    class="mt-6 grid grid-cols-2 gap-4"
-                                >
-                                    <div
-                                        v-for="(value, key) in study.impact_metrics"
-                                        :key="key"
-                                        class="rounded-lg border border-slate-800/80 bg-slate-900/60 p-3"
-                                    >
-                                        <p class="text-xs text-slate-500">
-                                            {{ metricLabels[key] ?? key }}
-                                        </p>
-                                        <p
-                                            class="mt-1 text-xl font-bold text-blue-400 sm:text-2xl"
-                                        >
-                                            {{ value }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                        <img
+                            :src="study.cover_image || fallbackCover(index)"
+                            :alt="study.title"
+                            class="aspect-[4/3] w-full object-cover transition duration-500 hover:scale-[1.02]"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div :class="index % 2 === 1 ? 'lg:order-1' : ''">
+                        <CaseStudyContent
+                            :study="study"
+                            :metric-labels="metricLabels"
+                        />
+                    </div>
+                </article>
             </div>
         </div>
     </section>

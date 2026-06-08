@@ -18,7 +18,7 @@ class AnalyzerController extends Controller
     {
         $validated = $request->validate([
             'url' => ['required', 'string', 'max:2048'],
-            'email' => ['required', 'email', 'max:255'],
+            'phone' => ['required', 'string', 'max:30'],
         ]);
 
         $url = $this->normalizeUrl($validated['url']);
@@ -75,7 +75,8 @@ class AnalyzerController extends Controller
 
         Lead::create([
             'name' => 'Analiz Aracı',
-            'email' => $validated['email'],
+            'email' => 'sistem-analiz@belirtilmedi.com',
+            'phone' => $validated['phone'],
             'message' => 'URL: '.$url.'. Skor: '.$report['score'],
             'status' => 'new',
         ]);
