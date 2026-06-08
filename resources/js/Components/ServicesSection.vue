@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 
 defineProps({
     services: {
@@ -15,6 +15,38 @@ defineProps({
         default: false,
     },
 });
+
+const page = usePage();
+
+const serviceImagesBySlug = {
+    'ozel-yazilim-gelistirme': 'images/services/software.webp',
+    'yapay-zeka-entegrasyonlari': 'images/services/ai.webp',
+    'olceklenebilir-web-sistemleri': 'images/services/web.webp',
+};
+
+const fallbackImages = [
+    'images/services/software.webp',
+    'images/services/ai.webp',
+    'images/services/web.webp',
+];
+
+const toAssetUrl = (path) => {
+    const base = (page.props.assetUrl ?? '').replace(/\/$/, '');
+
+    return `${base}/${path.replace(/^\//, '')}`;
+};
+
+const resolveServiceImage = (service, index) => {
+    if (service.image_url) {
+        return service.image_url;
+    }
+
+    if (service.slug && serviceImagesBySlug[service.slug]) {
+        return toAssetUrl(serviceImagesBySlug[service.slug]);
+    }
+
+    return toAssetUrl(fallbackImages[index % fallbackImages.length]);
+};
 </script>
 
 <template>
@@ -60,21 +92,11 @@ defineProps({
                     class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]"
                 >
                     <img
-                        v-if="service.image_url"
-                        :src="service.image_url"
+                        :src="resolveServiceImage(service, index)"
                         :alt="service.title"
-                        class="h-48 w-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                        class="h-48 w-full object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
                         loading="lazy"
                     />
-                    <div
-                        v-else
-                        class="flex h-48 w-full items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-blue-950/40"
-                        aria-hidden="true"
-                    >
-                        <span class="text-xs font-medium uppercase tracking-widest text-slate-500">
-                            Görsel yok
-                        </span>
-                    </div>
 
                     <div class="relative px-6">
                         <div
