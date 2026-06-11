@@ -21,5 +21,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Vite::prefetch(concurrency: 3);
+
+        // Load Vite CSS asynchronously so it does not block first paint / LCP.
+        Vite::useStyleTagAttributes([
+            'media' => 'print',
+            'onload' => "this.media='all'",
+        ]);
     }
 }

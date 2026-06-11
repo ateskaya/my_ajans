@@ -20,7 +20,7 @@ defineProps({
         <div class="mx-auto max-w-7xl">
             <p
                 v-if="eyebrow"
-                class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-300"
             >
                 {{ eyebrow }}
             </p>
@@ -29,7 +29,7 @@ defineProps({
             </h1>
             <p
                 v-if="description"
-                class="mt-4 max-w-2xl text-lg text-slate-400"
+                class="mt-4 max-w-2xl text-lg text-slate-300"
             >
                 {{ description }}
             </p>

@@ -28,7 +28,7 @@ import { Link } from '@inertiajs/vue3';
         <div class="relative z-10 mx-auto w-full max-w-7xl">
             <div class="max-w-3xl">
                 <p
-                    class="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                    class="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-300"
                 >
                     Enterprise Yazılım Ajansı
                 </p>
@@ -39,7 +39,7 @@ import { Link } from '@inertiajs/vue3';
                     Otonom Sistemler ve Ölçeklenebilir Web Çözümleri
                 </h1>
 
-                <p class="mt-6 text-lg leading-relaxed text-slate-400 sm:text-xl">
+                <p class="mt-6 text-lg leading-relaxed text-slate-300 sm:text-xl">
                     Yapay zeka entegrasyonları ve modern mimarilerle işletmenizin
                     dijital dönüşümünü hızlandırıyoruz.
                 </p>

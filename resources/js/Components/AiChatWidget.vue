@@ -91,7 +91,7 @@ const onKeydown = (event) => {
                 >
                     <div class="flex items-center gap-2">
                         <span
-                            class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 text-blue-400"
+                            class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 text-blue-300"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -112,12 +112,12 @@ const onKeydown = (event) => {
                             <p class="text-sm font-semibold text-white">
                                 Yapay Zeka Asistanı
                             </p>
-                            <p class="text-xs text-slate-500">Gemini · RAG</p>
+                            <p class="text-xs text-slate-300">Gemini · RAG</p>
                         </div>
                     </div>
                     <button
                         type="button"
-                        class="rounded-md p-1 text-slate-400 transition hover:bg-slate-800 hover:text-white"
+                        class="rounded-md p-1 text-slate-300 transition hover:bg-slate-800 hover:text-white"
                         aria-label="Kapat"
                         @click="isOpen = false"
                     >
@@ -128,6 +128,7 @@ const onKeydown = (event) => {
                             stroke-width="1.5"
                             stroke="currentColor"
                             class="h-5 w-5"
+                            aria-hidden="true"
                         >
                             <path
                                 stroke-linecap="round"
@@ -166,7 +167,7 @@ const onKeydown = (event) => {
 
                     <div v-if="isLoading" class="flex justify-start">
                         <div
-                            class="rounded-lg border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-slate-400"
+                            class="rounded-lg border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-slate-300"
                         >
                             <span class="inline-flex items-center gap-1">
                                 <span class="animate-pulse">Yazıyor</span>
@@ -192,7 +193,7 @@ const onKeydown = (event) => {
                             v-model="inputMessage"
                             type="text"
                             placeholder="Sorunuzu yazın..."
-                            class="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            class="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                             :disabled="isLoading"
                             @keydown="onKeydown"
                         />
@@ -200,6 +201,7 @@ const onKeydown = (event) => {
                             type="button"
                             class="inline-flex shrink-0 items-center justify-center rounded-lg bg-blue-600 px-3 py-2 text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                             :disabled="isLoading || !inputMessage.trim()"
+                            aria-label="Mesaj gönder"
                             @click="sendMessage"
                         >
                             <svg
@@ -209,6 +211,7 @@ const onKeydown = (event) => {
                                 stroke-width="1.5"
                                 stroke="currentColor"
                                 class="h-5 w-5"
+                                aria-hidden="true"
                             >
                                 <path
                                     stroke-linecap="round"
@@ -227,6 +230,7 @@ const onKeydown = (event) => {
             type="button"
             class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:border-blue-500 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950"
             :aria-expanded="isOpen"
+            :aria-label="isOpen ? 'Yapay zeka asistanını kapat' : 'Yapay zeka asistanını aç'"
             @click="toggleChat"
         >
             <svg
@@ -235,7 +239,8 @@ const onKeydown = (event) => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-5 w-5 text-blue-400"
+                class="h-5 w-5 text-blue-300"
+                aria-hidden="true"
             >
                 <path
                     stroke-linecap="round"

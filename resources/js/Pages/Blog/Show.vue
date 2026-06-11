@@ -30,13 +30,13 @@ const formatDate = (dateString) => {
             <div class="mx-auto max-w-3xl">
                 <Link
                     :href="route('blog.index')"
-                    class="text-sm font-medium text-blue-400 transition hover:text-blue-300"
+                    class="text-sm font-medium text-blue-300 transition hover:text-blue-300"
                 >
                     ← Tüm içgörüler
                 </Link>
 
                 <header class="mt-6 border-b border-slate-800 pb-8">
-                    <time class="text-sm font-medium text-blue-400">
+                    <time class="text-sm font-medium text-blue-300">
                         {{ formatDate(article.published_at) }}
                     </time>
                     <h1

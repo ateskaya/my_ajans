@@ -49,9 +49,10 @@ const isActive = (link) => {
         <nav
             class="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8"
         >
-            <Link href="/" class="flex items-center gap-2">
+            <Link href="/" class="flex items-center gap-2" aria-label="Ana sayfaya dön — Yazılım Ajansı">
                 <ApplicationLogo
                     class="h-8 w-auto fill-current text-white"
+                    aria-hidden="true"
                 />
                 <span class="hidden text-sm font-semibold tracking-wide text-white sm:inline">
                     Ajans
@@ -67,10 +68,10 @@ const isActive = (link) => {
                         class="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
                         :class="
                             isActive(link)
-                                ? 'text-blue-400'
+                                ? 'text-blue-300'
                                 : link.icon === 'labs'
-                                  ? 'text-blue-400 hover:text-blue-300'
-                                  : 'text-slate-300 hover:text-blue-400'
+                                  ? 'text-blue-300 hover:text-blue-300'
+                                  : 'text-slate-300 hover:text-blue-300'
                         "
                     >
                         <svg
@@ -97,7 +98,7 @@ const isActive = (link) => {
             <div class="flex items-center justify-end gap-4">
                 <a
                     href="tel:+905000000000"
-                    class="hidden items-center gap-2 text-sm font-medium text-slate-400 transition-colors duration-200 hover:text-white md:flex"
+                    class="hidden items-center gap-2 text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-white md:flex"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +106,7 @@ const isActive = (link) => {
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
                         stroke="currentColor"
-                        class="h-4 w-4 shrink-0 text-blue-400"
+                        class="h-4 w-4 shrink-0 text-blue-300"
                         aria-hidden="true"
                     >
                         <path

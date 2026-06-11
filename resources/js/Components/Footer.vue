@@ -22,12 +22,13 @@ const linkHref = (link) =>
                 class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4"
             >
                 <div class="space-y-4">
-                    <Link href="/" class="inline-flex items-center gap-2">
+                    <Link href="/" class="inline-flex items-center gap-2" aria-label="Ana sayfaya dön — Yazılım Ajansı">
                         <ApplicationLogo
                             class="h-8 w-auto fill-current text-white"
+                            aria-hidden="true"
                         />
                     </Link>
-                    <p class="text-sm leading-relaxed text-slate-400">
+                    <p class="text-sm leading-relaxed text-slate-300">
                         Kurumsal yazılım, yapay zeka ve ölçeklenebilir web
                         sistemleri ile işletmenizin dijital dönüşümünü
                         hızlandırıyoruz.
@@ -42,7 +43,7 @@ const linkHref = (link) =>
                         <li v-for="link in footerLinks" :key="link.label">
                             <Link
                                 :href="linkHref(link)"
-                                class="text-sm text-slate-400 transition-colors hover:text-blue-400"
+                                class="text-sm text-slate-300 transition-colors hover:text-blue-300"
                             >
                                 {{ link.label }}
                             </Link>
@@ -58,7 +59,7 @@ const linkHref = (link) =>
                         <li>
                             <Link
                                 :href="route('services.index')"
-                                class="text-sm text-slate-400 transition-colors hover:text-blue-400"
+                                class="text-sm text-slate-300 transition-colors hover:text-blue-300"
                             >
                                 Tüm hizmetlerimiz
                             </Link>
@@ -70,11 +71,11 @@ const linkHref = (link) =>
                     <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
                         İletişim
                     </h3>
-                    <ul class="space-y-2 text-sm text-slate-400">
+                    <ul class="space-y-2 text-sm text-slate-300">
                         <li>
                             <a
                                 href="mailto:hello@ajans.com"
-                                class="transition-colors hover:text-blue-400"
+                                class="transition-colors hover:text-blue-300"
                             >
                                 hello@ajans.com
                             </a>
@@ -82,7 +83,7 @@ const linkHref = (link) =>
                         <li>
                             <a
                                 href="tel:+902121234567"
-                                class="transition-colors hover:text-blue-400"
+                                class="transition-colors hover:text-blue-300"
                             >
                                 +90 (212) 123 45 67
                             </a>
@@ -95,13 +96,13 @@ const linkHref = (link) =>
             <div
                 class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row"
             >
-                <p class="text-xs text-slate-500">
+                <p class="text-xs text-slate-300">
                     &copy; {{ new Date().getFullYear() }} Yazılım Ajansı. Tüm
                     hakları saklıdır.
                 </p>
                 <Link
                     :href="route('status.index')"
-                    class="inline-flex items-center gap-2 text-xs text-slate-400 transition-colors hover:text-white"
+                    class="inline-flex items-center gap-2 text-xs text-slate-300 transition-colors hover:text-white"
                 >
                     <span
                         class="h-2 w-2 shrink-0 animate-pulse rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"

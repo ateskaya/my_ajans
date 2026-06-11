@@ -23,7 +23,7 @@ const budgetOptions = [
 ];
 
 const inputClass =
-    'mt-1 block w-full rounded-md border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500';
+    'mt-1 block w-full rounded-md border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-400 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500';
 
 const form = useForm({
     name: '',
@@ -76,7 +76,7 @@ const submit = () => {
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     Projenizi Konuşalım
                 </h2>
-                <p class="mt-3 max-w-2xl text-slate-400">
+                <p class="mt-3 max-w-2xl text-slate-300">
                     Formu doldurun; Google Ads kampanyalarınızdan gelen
                     talepleri de UTM parametreleriyle birlikte kaydediyoruz.
                 </p>
@@ -89,27 +89,27 @@ const submit = () => {
                         <h3 class="text-lg font-semibold text-white">
                             Doğrudan İletişim
                         </h3>
-                        <ul class="mt-4 space-y-3 text-slate-400">
+                        <ul class="mt-4 space-y-3 text-slate-300">
                             <li>
-                                <span class="text-slate-500">E-posta:</span>
+                                <span class="text-slate-300">E-posta:</span>
                                 <a
                                     href="mailto:hello@ajans.com"
-                                    class="ms-2 text-blue-400 transition-colors hover:text-blue-300"
+                                    class="ms-2 text-blue-300 transition-colors hover:text-blue-300"
                                 >
                                     hello@ajans.com
                                 </a>
                             </li>
                             <li>
-                                <span class="text-slate-500">Telefon:</span>
+                                <span class="text-slate-300">Telefon:</span>
                                 <a
                                     href="tel:+902121234567"
-                                    class="ms-2 text-blue-400 transition-colors hover:text-blue-300"
+                                    class="ms-2 text-blue-300 transition-colors hover:text-blue-300"
                                 >
                                     +90 (212) 123 45 67
                                 </a>
                             </li>
                             <li>
-                                <span class="text-slate-500">Konum:</span>
+                                <span class="text-slate-300">Konum:</span>
                                 <span class="ms-2">Bursa, Türkiye</span>
                             </li>
                         </ul>
@@ -123,7 +123,7 @@ const submit = () => {
                             <h3 class="text-sm font-semibold text-white">
                                 Ofis Konumumuz
                             </h3>
-                            <p class="mt-1 text-xs text-slate-500">
+                            <p class="mt-1 text-xs text-slate-300">
                                 Bursa · Nilüfer
                             </p>
                         </div>
@@ -142,9 +142,11 @@ const submit = () => {
                                 href="https://www.google.com/maps/search/?api=1&query=Bursa+Nil%C3%BCfer"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+                                class="text-sm font-medium text-blue-300 transition-colors hover:text-blue-300"
+                                aria-label="Bursa Nilüfer ofis konumunu Google Maps'te aç"
                             >
-                                Google Maps'te aç →
+                                Google Maps'te aç
+                                <span aria-hidden="true"> →</span>
                             </a>
                         </div>
                     </div>
@@ -152,7 +154,7 @@ const submit = () => {
                     <div
                         class="rounded-xl border border-slate-800 bg-slate-900/40 p-6"
                     >
-                        <p class="text-sm leading-relaxed text-slate-400">
+                        <p class="text-sm leading-relaxed text-slate-300">
                             Kurumsal yazılım, AI entegrasyonu ve ölçeklenebilir
                             web projeleri için teknik ekibimiz 24 saat içinde
                             ön değerlendirme ile dönüş yapar.

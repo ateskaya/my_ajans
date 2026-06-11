@@ -15,7 +15,7 @@ const technologies = [
     >
         <div class="mx-auto max-w-7xl text-center">
             <p
-                class="text-xs font-semibold uppercase tracking-widest text-slate-400"
+                class="text-xs font-semibold uppercase tracking-widest text-slate-300"
             >
                 Kullandığımız Modern Teknolojiler
             </p>

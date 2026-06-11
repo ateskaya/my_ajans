@@ -18,16 +18,31 @@ defineProps({
 
 const page = usePage();
 
-const serviceImagesBySlug = {
-    'ozel-yazilim-gelistirme': 'images/services/software.webp',
-    'yapay-zeka-entegrasyonlari': 'images/services/ai.webp',
-    'olceklenebilir-web-sistemleri': 'images/services/web.webp',
+const serviceImageFiles = {
+    'ozel-yazilim-gelistirme': {
+        full: 'software.webp',
+        small: 'software-400.webp',
+        width: 800,
+        height: 534,
+    },
+    'yapay-zeka-entegrasyonlari': {
+        full: 'ai.webp',
+        small: 'ai-400.webp',
+        width: 800,
+        height: 450,
+    },
+    'olceklenebilir-web-sistemleri': {
+        full: 'web.webp',
+        small: 'web-400.webp',
+        width: 800,
+        height: 532,
+    },
 };
 
-const fallbackImages = [
-    'images/services/software.webp',
-    'images/services/ai.webp',
-    'images/services/web.webp',
+const fallbackFiles = [
+    serviceImageFiles['ozel-yazilim-gelistirme'],
+    serviceImageFiles['yapay-zeka-entegrasyonlari'],
+    serviceImageFiles['olceklenebilir-web-sistemleri'],
 ];
 
 const toAssetUrl = (path) => {
@@ -36,16 +51,30 @@ const toAssetUrl = (path) => {
     return `${base}/${path.replace(/^\//, '')}`;
 };
 
+const resolveImageFiles = (service, index) => {
+    if (service.slug && serviceImageFiles[service.slug]) {
+        return serviceImageFiles[service.slug];
+    }
+
+    return fallbackFiles[index % fallbackFiles.length];
+};
+
 const resolveServiceImage = (service, index) => {
     if (service.image_url) {
         return service.image_url;
     }
 
-    if (service.slug && serviceImagesBySlug[service.slug]) {
-        return toAssetUrl(serviceImagesBySlug[service.slug]);
+    return toAssetUrl(`images/services/${resolveImageFiles(service, index).full}`);
+};
+
+const resolveServiceSrcSet = (service, index) => {
+    if (service.image_url?.startsWith('http')) {
+        return undefined;
     }
 
-    return toAssetUrl(fallbackImages[index % fallbackImages.length]);
+    const files = resolveImageFiles(service, index);
+
+    return `${toAssetUrl(`images/services/${files.small}`)} 400w, ${toAssetUrl(`images/services/${files.full}`)} 800w`;
 };
 </script>
 
@@ -62,21 +91,21 @@ const resolveServiceImage = (service, index) => {
             >
                 <div class="text-center md:text-left">
                     <p
-                        class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                        class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-300"
                     >
                         Hizmetler
                     </p>
                     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Uzmanlık Alanlarımız
                     </h2>
-                    <p class="mt-3 max-w-2xl text-slate-400">
+                    <p class="mt-3 max-w-2xl text-slate-300">
                         Görsel odaklı kartlarla hizmetlerimizi keşfedin.
                     </p>
                 </div>
                 <Link
                     v-if="showPageLink"
                     :href="route('services.index')"
-                    class="shrink-0 text-center text-sm font-medium text-blue-400 transition hover:text-blue-300"
+                    class="shrink-0 text-center text-sm font-medium text-blue-300 transition hover:text-blue-300"
                 >
                     Tüm hizmetler →
                 </Link>
@@ -87,14 +116,19 @@ const resolveServiceImage = (service, index) => {
                 :class="fullPage ? 'lg:gap-10' : ''"
             >
                 <article
-                    v-for="service in services"
+                    v-for="(service, index) in services"
                     :key="service.id"
                     class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]"
                 >
                     <img
                         :src="resolveServiceImage(service, index)"
+                        :srcset="resolveServiceSrcSet(service, index)"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                        :width="resolveImageFiles(service, index).width"
+                        :height="resolveImageFiles(service, index).height"
                         :alt="service.title"
                         class="h-48 w-full object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                        decoding="async"
                         loading="lazy"
                     />
 
@@ -110,12 +144,12 @@ const resolveServiceImage = (service, index) => {
                         <h3 class="mb-3 text-xl font-bold text-white">
                             {{ service.title }}
                         </h3>
-                        <p class="line-clamp-3 text-slate-400">
+                        <p class="line-clamp-3 text-slate-300">
                             {{ service.excerpt }}
                         </p>
                         <p
                             v-if="fullPage && service.description"
-                            class="mt-3 line-clamp-4 text-sm leading-relaxed text-slate-500"
+                            class="mt-3 line-clamp-4 text-sm leading-relaxed text-slate-300"
                         >
                             {{ service.description }}
                         </p>

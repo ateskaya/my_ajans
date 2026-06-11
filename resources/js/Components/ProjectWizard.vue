@@ -29,7 +29,7 @@ const budgetOptions = [
 ];
 
 const inputClass =
-    'mt-1 block w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500';
+    'mt-1 block w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500';
 
 const selectClass =
     'mt-1 block w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-200 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500';
@@ -152,7 +152,7 @@ const submit = () => {
                 <span class="font-medium text-slate-300">
                     Adım {{ currentStep }} / {{ totalSteps }}
                 </span>
-                <span class="text-slate-500">{{ stepLabels[currentStep - 1] }}</span>
+                <span class="text-slate-300">{{ stepLabels[currentStep - 1] }}</span>
             </div>
             <div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-800">
                 <div
@@ -177,7 +177,7 @@ const submit = () => {
                     <h2 class="text-xl font-semibold text-white sm:text-2xl">
                         Odaklanmamız gereken alan hangisi?
                     </h2>
-                    <p class="mt-2 text-sm text-slate-400">
+                    <p class="mt-2 text-sm text-slate-300">
                         Projenize en uygun uzmanlık alanını seçin.
                     </p>
 
@@ -205,14 +205,14 @@ const submit = () => {
                     <h2 class="text-xl font-semibold text-white sm:text-2xl">
                         Projenizden kısaca bahsedin
                     </h2>
-                    <p class="mt-2 text-sm text-slate-400">
+                    <p class="mt-2 text-sm text-slate-300">
                         Hedefleriniz, kullanıcı kitleniz ve beklediğiniz çıktılar hakkında bilgi verin.
                     </p>
 
                     <textarea
                         v-model="form.message"
                         rows="8"
-                        class="mt-6 w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-200 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        class="mt-6 w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-200 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                         placeholder="Örn: Diyetisyenler için mobil uygulama, randevu ve beslenme takibi..."
                     />
                     <InputError class="mt-2" :message="form.errors.message" />
@@ -223,7 +223,7 @@ const submit = () => {
                     <h2 class="text-xl font-semibold text-white sm:text-2xl">
                         Bütçe ve zaman çizelgesi
                     </h2>
-                    <p class="mt-2 text-sm text-slate-400">
+                    <p class="mt-2 text-sm text-slate-300">
                         Size en doğru teklifi hazırlayabilmemiz için planlamanızı paylaşın.
                     </p>
 
@@ -240,7 +240,7 @@ const submit = () => {
                                     :class="
                                         form.timeline === option.value
                                             ? 'border-blue-500 bg-blue-950/40 text-white'
-                                            : 'border-slate-700 bg-slate-950 text-slate-400 hover:border-slate-500'
+                                            : 'border-slate-700 bg-slate-950 text-slate-300 hover:border-slate-500'
                                     "
                                 >
                                     <input
@@ -286,7 +286,7 @@ const submit = () => {
                     <h2 class="text-xl font-semibold text-white sm:text-2xl">
                         Harika, son adıma geldik
                     </h2>
-                    <p class="mt-2 text-sm text-slate-400">
+                    <p class="mt-2 text-sm text-slate-300">
                         Teklifinizi nereye iletelim?
                     </p>
 

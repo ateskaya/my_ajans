@@ -1,6 +1,12 @@
 <script setup>
-const visionImage =
-    'https://images.unsplash.com/photo-1517694712202-14dd9538a88f?w=1920&auto=format&fit=crop&q=80';
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+
+const page = usePage();
+
+const visionImage = computed(() =>
+    `${(page.props.assetUrl ?? '').replace(/\/$/, '')}/images/vision/banner.webp`,
+);
 </script>
 
 <template>
@@ -12,8 +18,13 @@ const visionImage =
             <img
                 :src="visionImage"
                 alt=""
+                width="1200"
+                height="798"
+                sizes="100vw"
                 class="absolute inset-0 h-full w-full object-cover"
+                decoding="async"
                 loading="lazy"
+                fetchpriority="low"
                 aria-hidden="true"
             />
             <div class="absolute inset-0 bg-slate-950/70" />

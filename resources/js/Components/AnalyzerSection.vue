@@ -157,7 +157,7 @@ onUnmounted(() => {
             >
                 <div class="text-center">
                     <p
-                        class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400"
+                        class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300"
                     >
                         AI Sistem Analiz Aracı
                     </p>
@@ -167,7 +167,7 @@ onUnmounted(() => {
                         Sisteminizin Yapay Zeka ve Ölçeklenebilirlik Analizini
                         Ücretsiz Yapın
                     </h2>
-                    <p class="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
+                    <p class="mx-auto mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
                         URL'nizi girin; Gemini destekli mimarimiz SEO, teknik altyapı ve
                         AI otomasyon potansiyelinizi saniyeler içinde özetlesin.
                     </p>
@@ -185,7 +185,7 @@ onUnmounted(() => {
                         <div class="flex-1">
                             <label
                                 for="analyzer-url"
-                                class="mb-1.5 block text-xs font-medium text-slate-400"
+                                class="mb-1.5 block text-xs font-medium text-slate-300"
                             >
                                 Website URL
                             </label>
@@ -196,13 +196,13 @@ onUnmounted(() => {
                                 inputmode="url"
                                 autocomplete="url"
                                 placeholder="https://sirketiniz.com"
-                                class="w-full rounded-lg border border-slate-700/80 bg-slate-950/80 px-4 py-3 text-white placeholder-slate-500 shadow-inner focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30"
+                                class="w-full rounded-lg border border-slate-700/80 bg-slate-950/80 px-4 py-3 text-white placeholder-slate-400 shadow-inner focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30"
                             />
                         </div>
                         <div class="flex-1">
                             <label
                                 for="analyzer-phone"
-                                class="mb-1.5 block text-xs font-medium text-slate-400"
+                                class="mb-1.5 block text-xs font-medium text-slate-300"
                             >
                                 Telefon Numarası
                             </label>
@@ -213,7 +213,7 @@ onUnmounted(() => {
                                 inputmode="tel"
                                 autocomplete="tel"
                                 placeholder="05XX XXX XX XX"
-                                class="w-full rounded-lg border border-slate-700/80 bg-slate-950/80 px-4 py-3 text-white placeholder-slate-500 shadow-inner focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30"
+                                class="w-full rounded-lg border border-slate-700/80 bg-slate-950/80 px-4 py-3 text-white placeholder-slate-400 shadow-inner focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30"
                             />
                         </div>
                         <button
@@ -279,7 +279,7 @@ onUnmounted(() => {
                                 <span class="text-4xl font-bold text-white">
                                     %{{ report.score }}
                                 </span>
-                                <span class="mt-1 text-xs text-slate-400">
+                                <span class="mt-1 text-xs text-slate-300">
                                     Dijital Skor
                                 </span>
                             </div>
@@ -315,7 +315,7 @@ onUnmounted(() => {
                         </Link>
                         <button
                             type="button"
-                            class="text-sm text-slate-400 transition hover:text-white"
+                            class="text-sm text-slate-300 transition hover:text-white"
                             @click="reset"
                         >
                             Yeni analiz yap

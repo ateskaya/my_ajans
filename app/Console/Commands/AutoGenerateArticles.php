@@ -90,7 +90,7 @@ class AutoGenerateArticles extends Command
             'slug' => $slug,
             'content' => $generated['content'],
             'original_source_url' => $item['link'],
-            'image_url' => $item['image_url'],
+            'image_url' => $this->safeImageUrl($item['image_url']),
             'published_at' => now(),
         ]);
 
@@ -99,6 +99,19 @@ class AutoGenerateArticles extends Command
         $this->line('Blog: '.url("/blog/{$article->slug}"));
 
         return self::SUCCESS;
+    }
+
+    private function safeImageUrl(?string $url): ?string
+    {
+        if ($url === null || $url === '') {
+            return null;
+        }
+
+        if (str_contains($url, 'unsplash.com')) {
+            return null;
+        }
+
+        return $url;
     }
 
     private function uniqueSlug(string $baseSlug): string

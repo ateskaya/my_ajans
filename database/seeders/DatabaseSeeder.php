@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
                     'infrastructure_cost_reduction' => '22%',
                     'uptime' => '99.95%',
                 ],
-                'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=80',
+                'cover_image' => '/images/case-studies/ecommerce.webp',
                 'is_featured' => true,
             ],
             [
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
                     'nps_increase' => '+24 puan',
                     'monthly_ops_savings' => '120.000 TL',
                 ],
-                'cover_image' => 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&auto=format&fit=crop&q=80',
+                'cover_image' => '/images/case-studies/saas-ai.webp',
                 'is_featured' => true,
             ],
         ]);

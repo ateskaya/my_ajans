@@ -43,10 +43,10 @@ const excerpt = (html, length = 160) => {
             <div class="mx-auto max-w-7xl">
                 <div
                     v-if="articles.length === 0"
-                    class="rounded-xl border border-slate-800 bg-slate-900/40 px-6 py-16 text-center text-slate-400"
+                    class="rounded-xl border border-slate-800 bg-slate-900/40 px-6 py-16 text-center text-slate-300"
                 >
                     Henüz yayınlanmış makale yok. İlk içeriği üretmek için
-                    <code class="text-blue-400">php artisan app:auto-generate-articles</code>
+                    <code class="text-blue-300">php artisan app:auto-generate-articles</code>
                     komutunu çalıştırın.
                 </div>
 
@@ -71,22 +71,23 @@ const excerpt = (html, length = 160) => {
                         </div>
 
                         <div class="flex flex-1 flex-col p-6">
-                            <time class="text-xs font-medium text-blue-400">
+                            <time class="text-xs font-medium text-blue-300">
                                 {{ formatDate(article.published_at) }}
                             </time>
                             <h2
-                                class="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-blue-400"
+                                class="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-blue-300"
                             >
                                 {{ article.title }}
                             </h2>
-                            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">
+                            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-300">
                                 {{ excerpt(article.content) }}
                             </p>
                             <Link
                                 :href="route('blog.show', article.slug)"
-                                class="mt-4 inline-flex text-sm font-medium text-blue-400 hover:text-blue-300"
+                                class="mt-4 inline-flex text-sm font-medium text-blue-300 hover:text-blue-200"
                             >
-                                Devamını oku →
+                                {{ article.title }} makalesini oku
+                                <span aria-hidden="true"> →</span>
                             </Link>
                         </div>
                     </article>

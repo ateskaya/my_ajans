@@ -71,7 +71,7 @@ const formatPaybackMonths = (months) => {
         <div class="mx-auto max-w-7xl">
             <div class="mb-10 text-center">
                 <p
-                    class="text-sm font-semibold uppercase tracking-widest text-blue-400"
+                    class="text-sm font-semibold uppercase tracking-widest text-blue-300"
                 >
                     ROI Hesaplayıcı
                 </p>
@@ -80,7 +80,7 @@ const formatPaybackMonths = (months) => {
                 >
                     Otomasyonun Gücünü Hesaplayın
                 </h2>
-                <p class="mx-auto mt-4 max-w-2xl text-slate-400">
+                <p class="mx-auto mt-4 max-w-2xl text-slate-300">
                     Operasyonel yüklerinizin şirketinize gerçek maliyetini ve
                     yazılımla ne kadar tasarruf edeceğinizi görün.
                 </p>
@@ -98,7 +98,7 @@ const formatPaybackMonths = (months) => {
                             <label for="roi-employees">
                                 Personel Sayısı
                             </label>
-                            <span class="text-blue-400">
+                            <span class="text-blue-300">
                                 {{ numberFormatter.format(employeeCount) }}
                             </span>
                         </div>
@@ -111,7 +111,7 @@ const formatPaybackMonths = (months) => {
                             step="1"
                             class="roi-range w-full accent-blue-500"
                         />
-                        <p class="mt-1 text-xs text-slate-500">
+                        <p class="mt-1 text-xs text-slate-300">
                             Manuel iş yapan personel
                         </p>
                     </div>
@@ -123,7 +123,7 @@ const formatPaybackMonths = (months) => {
                             <label for="roi-hours">
                                 Günlük Manuel İş (saat / kişi)
                             </label>
-                            <span class="text-blue-400">
+                            <span class="text-blue-300">
                                 {{ numberFormatter.format(hoursPerDay) }} saat
                             </span>
                         </div>
@@ -136,7 +136,7 @@ const formatPaybackMonths = (months) => {
                             step="1"
                             class="roi-range w-full accent-blue-500"
                         />
-                        <p class="mt-1 text-xs text-slate-500">
+                        <p class="mt-1 text-xs text-slate-300">
                             Personel başı kayıp / tekrarlayan iş süresi
                         </p>
                     </div>
@@ -148,7 +148,7 @@ const formatPaybackMonths = (months) => {
                             <label for="roi-wage">
                                 Ortalama Saatlik Ücret
                             </label>
-                            <span class="text-blue-400">
+                            <span class="text-blue-300">
                                 {{ formatCurrency(hourlyWage) }}
                             </span>
                         </div>
@@ -161,12 +161,12 @@ const formatPaybackMonths = (months) => {
                             step="50"
                             class="roi-range w-full accent-blue-500"
                         />
-                        <p class="mt-1 text-xs text-slate-500">
+                        <p class="mt-1 text-xs text-slate-300">
                             Tam yüklenmiş maliyet (₺/saat)
                         </p>
                     </div>
 
-                    <p class="rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 text-xs text-slate-500">
+                    <p class="rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 text-xs text-slate-300">
                         Mevcut yıllık operasyonel maliyet (tahmini):
                         <span class="font-medium text-slate-300">
                             {{ formatCurrency(currentAnnualCost) }}
@@ -181,7 +181,7 @@ const formatPaybackMonths = (months) => {
                     class="flex flex-col rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors duration-300 hover:border-green-500/60 sm:p-8"
                 >
                     <p
-                        class="text-sm font-semibold uppercase tracking-wider text-slate-400"
+                        class="text-sm font-semibold uppercase tracking-wider text-slate-300"
                     >
                         Yıllık Tahmini Tasarrufunuz
                     </p>
@@ -191,13 +191,13 @@ const formatPaybackMonths = (months) => {
                     >
                         {{ formatCurrency(annualSavings) }}
                     </p>
-                    <p class="mt-6 text-sm text-slate-400">
+                    <p class="mt-6 text-sm text-slate-300">
                         Sistem kendini ortalama
                         <span class="font-semibold text-white">
                             {{ formatPaybackMonths(paybackMonths) }}
                         </span>
                         ayda amorti eder
-                        <span class="text-slate-500">
+                        <span class="text-slate-300">
                             (örnek sistem yatırımı
                             {{ formatCurrency(systemCost) }})
                         </span>
@@ -210,13 +210,13 @@ const formatPaybackMonths = (months) => {
                         >
                             Bu Tasarrufu Gerçeğe Dönüştürün
                         </Link>
-                        <p class="mt-3 text-sm text-slate-400 transition-colors">
+                        <p class="mt-3 text-sm text-slate-300 transition-colors">
                             veya aklınıza takılanları
                             <a
                                 href="https://wa.me/905000000000"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-green-500 underline transition-colors hover:text-green-400"
+                                class="text-green-400 underline transition-colors hover:text-green-400"
                             >
                                 WhatsApp uzmanımıza sorun
                             </a>.

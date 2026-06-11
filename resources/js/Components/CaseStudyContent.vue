@@ -19,28 +19,28 @@ defineProps({
         <h3 class="mt-2 text-xl font-bold text-white sm:text-2xl">
             {{ study.title }}
         </h3>
-        <p class="mt-1 text-sm font-medium text-blue-400">
+        <p class="mt-1 text-sm font-medium text-blue-300">
             {{ study.client_name }}
         </p>
 
         <div class="mt-6 space-y-4">
             <div>
                 <h4
-                    class="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-500"
+                    class="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-300"
                 >
                     Problem
                 </h4>
-                <p class="line-clamp-3 text-sm leading-relaxed text-slate-400">
+                <p class="line-clamp-3 text-sm leading-relaxed text-slate-300">
                     {{ study.problem }}
                 </p>
             </div>
             <div>
                 <h4
-                    class="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-500"
+                    class="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-300"
                 >
                     Çözüm
                 </h4>
-                <p class="line-clamp-3 text-sm leading-relaxed text-slate-400">
+                <p class="line-clamp-3 text-sm leading-relaxed text-slate-300">
                     {{ study.solution }}
                 </p>
             </div>
@@ -56,10 +56,10 @@ defineProps({
                     :key="key"
                     class="rounded-lg border border-slate-800/80 bg-slate-900/60 p-3"
                 >
-                    <p class="text-xs text-slate-500">
+                    <p class="text-xs text-slate-300">
                         {{ metricLabels[key] ?? key }}
                     </p>
-                    <p class="mt-1 text-lg font-bold text-blue-400">
+                    <p class="mt-1 text-lg font-bold text-blue-300">
                         {{ value }}
                     </p>
                 </div>

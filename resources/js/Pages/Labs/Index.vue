@@ -27,7 +27,7 @@ const badgeClass = (status) =>
         <section class="border-b border-slate-800 px-4 py-16 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl text-center">
                 <p
-                    class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                    class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-300"
                 >
                     Yazılım Fabrikası
                 </p>
@@ -36,7 +36,7 @@ const badgeClass = (status) =>
                 >
                     Labs & SaaS Ürünlerimiz
                 </h1>
-                <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+                <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
                     Sadece müşteri projeleri geliştirmiyor, kendi otonom
                     ekosistemlerimizi inşa ediyoruz.
                 </p>
@@ -62,11 +62,11 @@ const badgeClass = (status) =>
 
                         <div class="pr-24">
                             <h2
-                                class="text-xl font-bold text-white transition-colors group-hover:text-blue-400"
+                                class="text-xl font-bold text-white transition-colors group-hover:text-blue-300"
                             >
                                 {{ project.title }}
                             </h2>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                            <p class="mt-3 text-sm leading-relaxed text-slate-300">
                                 {{ project.short_description }}
                             </p>
                         </div>
@@ -89,9 +89,11 @@ const badgeClass = (status) =>
                                 :href="project.project_url"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+                                class="text-sm font-medium text-blue-300 transition-colors hover:text-blue-200"
+                                :aria-label="`${project.title} projesini dış sitede incele`"
                             >
-                                Projeyi İncele →
+                                {{ project.title }} — Projeyi incele
+                                <span aria-hidden="true"> →</span>
                             </a>
                         </div>
                     </article>

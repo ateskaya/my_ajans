@@ -61,7 +61,7 @@ const metricCards = computed(() => [
         <section class="border-b border-slate-800 px-4 py-16 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl">
                 <p
-                    class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-400"
+                    class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-300"
                 >
                     Şeffaflık & Güvenilirlik
                 </p>
@@ -103,7 +103,7 @@ const metricCards = computed(() => [
                         class="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg shadow-black/20"
                     >
                         <p
-                            class="text-xs font-semibold uppercase tracking-wider text-slate-500"
+                            class="text-xs font-semibold uppercase tracking-wider text-slate-300"
                         >
                             {{ metric.label }}
                         </p>
@@ -112,7 +112,7 @@ const metricCards = computed(() => [
                         >
                             {{ metric.value }}
                         </p>
-                        <p class="mt-1 text-sm text-slate-500">
+                        <p class="mt-1 text-sm text-slate-300">
                             {{ metric.sub }}
                         </p>
                     </div>
@@ -128,7 +128,7 @@ const metricCards = computed(() => [
                             <h2 class="text-lg font-semibold text-white">
                                 30 Günlük Uptime Geçmişi
                             </h2>
-                            <p class="mt-1 text-sm text-slate-400">
+                            <p class="mt-1 text-sm text-slate-300">
                                 Tüm servisler kesintisiz çalışıyor.
                             </p>
                         </div>
@@ -160,7 +160,7 @@ const metricCards = computed(() => [
                     </div>
 
                     <div
-                        class="mt-4 flex justify-between text-xs text-slate-500"
+                        class="mt-4 flex justify-between text-xs text-slate-300"
                     >
                         <span>30 gün önce</span>
                         <span>Bugün</span>

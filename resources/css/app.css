@@ -10,6 +10,12 @@
     html.dark body {
         @apply bg-enterprise-bg text-slate-200 antialiased;
     }
+
+    html.dark input::placeholder,
+    html.dark textarea::placeholder,
+    html.dark select::placeholder {
+        @apply text-slate-400 opacity-100;
+    }
 }
 
 @layer components {

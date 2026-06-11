@@ -15,7 +15,7 @@ const props = defineProps({
 const classes = computed(() =>
     props.active
         ? 'inline-flex items-center px-1 pt-1 border-b-2 border-accent text-sm font-medium leading-5 text-accent-neon focus:outline-none focus:border-accent-bright transition duration-150 ease-in-out'
-        : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-slate-400 hover:text-accent hover:border-enterprise-border-light focus:outline-none focus:text-accent focus:border-enterprise-border-light transition duration-150 ease-in-out',
+        : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-slate-300 hover:text-accent hover:border-enterprise-border-light focus:outline-none focus:text-accent focus:border-enterprise-border-light transition duration-150 ease-in-out',
 );
 </script>
 
