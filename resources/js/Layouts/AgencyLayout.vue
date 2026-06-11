@@ -1,8 +1,11 @@
 <script setup>
-import Footer from '@/Components/Footer.vue';
 import Navbar from '@/Components/Navbar.vue';
 import { Head, usePage } from '@inertiajs/vue3';
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue';
+
+const AsyncFooter = defineAsyncComponent(() =>
+    import('@/Components/Footer.vue'),
+);
 
 const AiChatWidget = defineAsyncComponent(() =>
     import('@/Components/AiChatWidget.vue'),
@@ -63,7 +66,7 @@ onMounted(() => {
             <slot />
         </main>
 
-        <Footer />
+        <AsyncFooter />
 
         <AiChatWidget v-if="showDeferredWidgets" />
         <FloatingContact v-if="showDeferredWidgets" />

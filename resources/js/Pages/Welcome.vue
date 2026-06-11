@@ -1,13 +1,7 @@
 <script setup>
 import AgencyLayout from '@/Layouts/AgencyLayout.vue';
-import CaseStudiesSection from '@/Components/CaseStudiesSection.vue';
-import RoiCalculator from '@/Components/RoiCalculator.vue';
-import ContactSection from '@/Components/ContactSection.vue';
-import AnalyzerSection from '@/Components/AnalyzerSection.vue';
 import HeroSection from '@/Components/HeroSection.vue';
-import ServicesSection from '@/Components/ServicesSection.vue';
-import VisionSection from '@/Components/VisionSection.vue';
-import TechStackSection from '@/Components/TechStackSection.vue';
+import LazySection from '@/Components/LazySection.vue';
 import { Head } from '@inertiajs/vue3';
 
 defineProps({
@@ -27,12 +21,42 @@ defineProps({
 
     <AgencyLayout>
         <HeroSection />
-        <AnalyzerSection />
-        <TechStackSection />
-        <ServicesSection :services="services" />
-        <VisionSection />
-        <RoiCalculator />
-        <CaseStudiesSection :case-studies="caseStudies" />
-        <ContactSection />
+
+        <LazySection
+            :loader="() => import('@/Components/AnalyzerSection.vue')"
+            min-height="28rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/TechStackSection.vue')"
+            min-height="12rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/ServicesSection.vue')"
+            :services="services"
+            min-height="24rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/VisionSection.vue')"
+            min-height="16rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/RoiCalculator.vue')"
+            min-height="20rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/CaseStudiesSection.vue')"
+            :case-studies="caseStudies"
+            min-height="24rem"
+        />
+
+        <LazySection
+            :loader="() => import('@/Components/ContactSection.vue')"
+            min-height="20rem"
+        />
     </AgencyLayout>
 </template>

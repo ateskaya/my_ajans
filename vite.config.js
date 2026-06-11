@@ -21,6 +21,17 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks(id) {
+                    if (
+                        id.includes('node_modules/vue')
+                        || id.includes('node_modules/@vue')
+                    ) {
+                        return 'vue-vendor';
+                    }
+
+                    if (id.includes('node_modules/@inertiajs')) {
+                        return 'inertia-vendor';
+                    }
+
                     if (id.includes('node_modules/three') || id.includes('@tresjs')) {
                         return 'three-vendor';
                     }
