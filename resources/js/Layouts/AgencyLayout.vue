@@ -1,14 +1,34 @@
 <script setup>
-import AiChatWidget from '@/Components/AiChatWidget.vue';
-import FloatingContact from '@/Components/FloatingContact.vue';
-import DeveloperTerminal from '@/Components/DeveloperTerminal.vue';
 import Footer from '@/Components/Footer.vue';
 import Navbar from '@/Components/Navbar.vue';
 import { Head, usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import { computed, defineAsyncComponent, onMounted, ref } from 'vue';
+
+const AiChatWidget = defineAsyncComponent(() =>
+    import('@/Components/AiChatWidget.vue'),
+);
+const DeveloperTerminal = defineAsyncComponent(() =>
+    import('@/Components/DeveloperTerminal.vue'),
+);
+const FloatingContact = defineAsyncComponent(() =>
+    import('@/Components/FloatingContact.vue'),
+);
 
 const page = usePage();
 const flashSuccess = computed(() => page.props.flash?.success);
+const showDeferredWidgets = ref(false);
+
+onMounted(() => {
+    const enableWidgets = () => {
+        showDeferredWidgets.value = true;
+    };
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(enableWidgets, { timeout: 2000 });
+    } else {
+        setTimeout(enableWidgets, 1200);
+    }
+});
 </script>
 
 <template>
@@ -17,17 +37,17 @@ const flashSuccess = computed(() => page.props.flash?.success);
         <meta
             head-key="description"
             name="description"
-            content="İşletmenizin dijital dönüşümünü hızlandırıyoruz. Yapay zeka, RAG asistanlar ve otonom sistemlerle ölçeklenebilir özel yazılım çözümleri."
+            content="Bursa yazılım şirketi olarak işletmenizin dijital dönüşümünü hızlandırıyoruz. Yapay zeka, RAG asistanlar ve otonom sistemlerle ölçeklenebilir özel yazılım çözümleri."
         />
         <meta
             head-key="keywords"
             name="keywords"
-            content="özel yazılım geliştirme, yapay zeka, otonom sistemler, saas altyapısı, B2B yazılım, RAG, LLM entegrasyonu"
+            content="bursa yazılım şirketi, bursa yazılım firması, bursa yazılım ajansı, bursa web yazılım, özel yazılım geliştirme, yapay zeka, otonom sistemler, saas altyapısı, B2B yazılım, RAG, LLM entegrasyonu"
         />
     </Head>
 
     <div class="flex min-h-screen flex-col bg-slate-950 text-slate-300">
-        <DeveloperTerminal />
+        <DeveloperTerminal v-if="showDeferredWidgets" />
 
         <Navbar />
 
@@ -45,7 +65,7 @@ const flashSuccess = computed(() => page.props.flash?.success);
 
         <Footer />
 
-        <AiChatWidget />
-        <FloatingContact />
+        <AiChatWidget v-if="showDeferredWidgets" />
+        <FloatingContact v-if="showDeferredWidgets" />
     </div>
 </template>

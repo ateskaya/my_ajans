@@ -8,6 +8,10 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    showMap: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const page = usePage();
@@ -106,9 +110,43 @@ const submit = () => {
                             </li>
                             <li>
                                 <span class="text-slate-500">Konum:</span>
-                                <span class="ms-2">İstanbul, Türkiye</span>
+                                <span class="ms-2">Bursa, Türkiye</span>
                             </li>
                         </ul>
+                    </div>
+
+                    <div
+                        v-if="showMap"
+                        class="overflow-hidden rounded-xl border border-slate-800 bg-slate-900/40 shadow-[0_0_30px_rgba(59,130,246,0.08)]"
+                    >
+                        <div class="border-b border-slate-800 px-4 py-3">
+                            <h3 class="text-sm font-semibold text-white">
+                                Ofis Konumumuz
+                            </h3>
+                            <p class="mt-1 text-xs text-slate-500">
+                                Bursa · Nilüfer
+                            </p>
+                        </div>
+                        <div class="relative aspect-[16/10] w-full sm:aspect-[16/9]">
+                            <iframe
+                                title="Bursa ofis konumu haritası"
+                                src="https://maps.google.com/maps?q=Bursa+Nil%C3%BCfer&hl=tr&z=13&output=embed"
+                                class="absolute inset-0 h-full w-full border-0 grayscale-[20%] contrast-[1.05] invert-[90%] hue-rotate-180"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                allowfullscreen
+                            />
+                        </div>
+                        <div class="border-t border-slate-800 px-4 py-3">
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Bursa+Nil%C3%BCfer"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+                            >
+                                Google Maps'te aç →
+                            </a>
+                        </div>
                     </div>
 
                     <div

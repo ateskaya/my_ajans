@@ -1,5 +1,5 @@
 <script setup>
-import ThreeScene from '@/Components/ThreeScene.vue';
+import HeroBackground from '@/Components/HeroBackground.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 
@@ -7,7 +7,7 @@ import { Link } from '@inertiajs/vue3';
     <section
         class="relative flex min-h-[80vh] items-center overflow-hidden bg-slate-950 px-4 sm:px-6 lg:px-8"
     >
-        <ThreeScene />
+        <HeroBackground />
 
         <!-- Arka plan: radial gradient + ızgara deseni -->
         <div

@@ -1,4 +1,3 @@
-import { templateCompilerOptions } from '@tresjs/core';
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -10,9 +9,7 @@ export default defineConfig({
             refresh: true,
         }),
         vue({
-            ...templateCompilerOptions,
             template: {
-                ...templateCompilerOptions.template,
                 transformAssetUrls: {
                     base: null,
                     includeAbsolute: false,
@@ -20,4 +17,19 @@ export default defineConfig({
             },
         }),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules/three') || id.includes('@tresjs')) {
+                        return 'three-vendor';
+                    }
+
+                    if (id.includes('node_modules/gsap')) {
+                        return 'gsap-vendor';
+                    }
+                },
+            },
+        },
+    },
 });

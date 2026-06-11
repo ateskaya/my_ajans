@@ -14,6 +14,6 @@ import { Head } from '@inertiajs/vue3';
             title="İletişim"
             description="Formu doldurun; ekibimiz en kısa sürede size dönüş yapsın."
         />
-        <ContactSection hide-header />
+        <ContactSection hide-header show-map />
     </AgencyLayout>
 </template>
