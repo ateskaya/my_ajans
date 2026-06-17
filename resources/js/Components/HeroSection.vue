@@ -1,6 +1,9 @@
 <script setup>
 import HeroBackground from '@/Components/HeroBackground.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
+
+const page = usePage();
+const agency = page.props.agency;
 </script>
 
 <template>
@@ -54,7 +57,7 @@ import { Link } from '@inertiajs/vue3';
                         </Link>
 
                         <a
-                            href="https://wa.me/905000000000?text=Merhaba,%20web%20sitenizden%20ulaşıyorum,%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum."
+                            :href="agency.whatsappUrl"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="inline-flex items-center justify-center gap-2 rounded-md border border-slate-700 bg-transparent px-6 py-3 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:border-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-slate-950"

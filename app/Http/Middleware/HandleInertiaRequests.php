@@ -38,6 +38,12 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
+            'agency' => [
+                'email' => config('agency.email'),
+                'phoneDisplay' => config('agency.phone_display'),
+                'phoneTel' => config('agency.phone_tel'),
+                'whatsappUrl' => config('agency.whatsapp_url'),
+            ],
         ];
     }
 }

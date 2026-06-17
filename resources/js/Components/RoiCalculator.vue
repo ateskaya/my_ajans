@@ -1,6 +1,9 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
+
+const page = usePage();
+const agency = page.props.agency;
 
 const employeeCount = ref(5);
 const hoursPerDay = ref(4);
@@ -213,7 +216,7 @@ const formatPaybackMonths = (months) => {
                         <p class="mt-3 text-sm text-slate-300 transition-colors">
                             veya aklınıza takılanları
                             <a
-                                href="https://wa.me/905000000000"
+                                :href="agency.whatsappUrl"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-green-400 underline transition-colors hover:text-green-400"

@@ -1,7 +1,12 @@
 <script setup>
-const phoneHref = 'tel:+905000000000';
-const whatsappHref =
-    'https://wa.me/905000000000?text=Merhaba,%20web%20sitenizden%20ulaşıyorum,%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum.';
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+
+const page = usePage();
+const agency = computed(() => page.props.agency);
+
+const phoneHref = computed(() => `tel:${agency.value.phoneTel}`);
+const whatsappHref = computed(() => agency.value.whatsappUrl);
 </script>
 
 <template>

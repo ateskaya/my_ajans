@@ -1,6 +1,9 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
+
+const page = usePage();
+const agency = page.props.agency;
 
 const footerLinks = [
     { label: 'Ana Sayfa', routeName: null, href: '/' },
@@ -74,18 +77,18 @@ const linkHref = (link) =>
                     <ul class="space-y-2 text-sm text-slate-300">
                         <li>
                             <a
-                                href="mailto:hello@ajans.com"
+                                :href="`mailto:${agency.email}`"
                                 class="transition-colors hover:text-blue-300"
                             >
-                                hello@ajans.com
+                                {{ agency.email }}
                             </a>
                         </li>
                         <li>
                             <a
-                                href="tel:+902121234567"
+                                :href="`tel:${agency.phoneTel}`"
                                 class="transition-colors hover:text-blue-300"
                             >
-                                +90 (212) 123 45 67
+                                {{ agency.phoneDisplay }}
                             </a>
                         </li>
                         <li>İstanbul, Türkiye</li>

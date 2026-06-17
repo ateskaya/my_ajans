@@ -75,7 +75,7 @@ class AnalyzerController extends Controller
 
         Lead::create([
             'name' => 'Analiz Aracı',
-            'email' => 'sistem-analiz@belirtilmedi.com',
+            'email' => config('agency.email'),
             'phone' => $validated['phone'],
             'message' => 'URL: '.$url.'. Skor: '.$report['score'],
             'status' => 'new',

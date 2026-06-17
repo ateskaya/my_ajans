@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::query()->updateOrCreate(
-            ['email' => 'ensar@ensar-saas-factory'],
+            ['email' => 'ensar.brahim@gmail.com'],
             [
                 'name' => 'Ensar Admin',
                 'password' => 'password',
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         );
 
         $client = User::query()->updateOrCreate(
-            ['email' => 'client@test.com'],
+            ['email' => 'ensar.brahim+client@gmail.com'],
             [
                 'name' => 'Test Müşteri',
                 'password' => 'password',

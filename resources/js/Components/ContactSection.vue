@@ -15,6 +15,7 @@ defineProps({
 });
 
 const page = usePage();
+const agency = page.props.agency;
 
 const budgetOptions = [
     { value: '', label: 'Bütçe aralığı seçin' },
@@ -93,19 +94,19 @@ const submit = () => {
                             <li>
                                 <span class="text-slate-300">E-posta:</span>
                                 <a
-                                    href="mailto:hello@ajans.com"
+                                    :href="`mailto:${agency.email}`"
                                     class="ms-2 text-blue-300 transition-colors hover:text-blue-300"
                                 >
-                                    hello@ajans.com
+                                    {{ agency.email }}
                                 </a>
                             </li>
                             <li>
                                 <span class="text-slate-300">Telefon:</span>
                                 <a
-                                    href="tel:+902121234567"
+                                    :href="`tel:${agency.phoneTel}`"
                                     class="ms-2 text-blue-300 transition-colors hover:text-blue-300"
                                 >
-                                    +90 (212) 123 45 67
+                                    {{ agency.phoneDisplay }}
                                 </a>
                             </li>
                             <li>
