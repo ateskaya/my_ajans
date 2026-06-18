@@ -49,6 +49,8 @@ Route::get('/labs', [LabController::class, 'index'])->name('labs.index');
 
 Route::get('/status', [SystemStatusController::class, 'index'])->name('status.index');
 
+Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
+
 Route::post('/chat', [AiChatController::class, 'sendMessage'])->name('chat.send');
 
 Route::post('/analyze-site', [AnalyzerController::class, 'analyze'])->name('analyze.site');
