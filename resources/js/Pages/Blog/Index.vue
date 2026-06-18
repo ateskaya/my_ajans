@@ -30,7 +30,14 @@ const excerpt = (html, length = 160) => {
 </script>
 
 <template>
-    <Head title="İçgörüler" />
+    <Head>
+        <title>İçgörüler</title>
+        <meta
+            head-key="description"
+            name="description"
+            content="Bursa yazılım şirketi ve Nilüfer yazılım firması perspektifinden teknoloji, yapay zeka, özel yazılım ve web sistemleri üzerine uzman içgörüler."
+        />
+    </Head>
 
     <AgencyLayout>
         <PageHeader

@@ -7,6 +7,10 @@ defineProps({
         type: Object,
         required: true,
     },
+    metaDescription: {
+        type: String,
+        default: '',
+    },
 });
 
 const formatDate = (dateString) => {
@@ -23,7 +27,15 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-    <Head :title="article.title" />
+    <Head>
+        <title>{{ article.title }}</title>
+        <meta
+            v-if="metaDescription"
+            head-key="description"
+            name="description"
+            :content="metaDescription"
+        />
+    </Head>
 
     <AgencyLayout>
         <article class="px-4 py-12 sm:px-6 lg:px-8">
